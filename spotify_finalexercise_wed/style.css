@@ -21,7 +21,7 @@ body, html {
 
 .left-sidebar, .right-sidebar {
   flex: 1;
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,10 +37,17 @@ body, html {
 }
 
 .current-track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 20px;
 }
 
 .player {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
 }
 
