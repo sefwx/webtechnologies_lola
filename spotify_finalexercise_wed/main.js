@@ -54,25 +54,26 @@ function displayCurrentTrack(track) {
 
 function displayNextTracks(tracks) {
   container.innerHTML = ''; // Clear previous track list
-  const ul = document.createElement("ul");
+  const gridContainer = document.createElement("div");
+  gridContainer.classList.add("tracks-grid");
 
   tracks.forEach((track, index) => {
-    const li = document.createElement("li");
-    li.classList.add("list-item");
-    li.setAttribute("data-index", index); // Set data-index attribute
+    const trackContainer = document.createElement("div");
+    trackContainer.classList.add("track-container");
+    trackContainer.setAttribute("data-index", index); // Set data-index attribute
 
-    li.innerHTML = `
-      <span class="artist">Artist: ${track.track.artists.map(artist => artist.name).join(', ')}</span>
-      <span class="album">Album: ${track.track.album.name}</span>
-      <span class="song">Track: ${track.track.name}</span>
+    trackContainer.innerHTML = `
+      <div class="artist">Artist: ${track.track.artists.map(artist => artist.name).join(', ')}</div>
+      <div class="album">Album: ${track.track.album.name}</div>
+      <div class="song">Track: ${track.track.name}</div>
     `;
 
     // Add click event listener to switch track
-    li.addEventListener('click', () => {
+    trackContainer.addEventListener('click', () => {
       switchTrack(index);
     });
 
-    ul.appendChild(li);
+    gridContainer.appendChild(trackContainer);
 
     // Display sidebar tracks for the first two tracks
     if (index === 1) {
@@ -82,7 +83,7 @@ function displayNextTracks(tracks) {
     }
   });
 
-  container.appendChild(ul);
+  container.appendChild(gridContainer);
 }
 
 function displaySidebarTrack(side, track, index) {
@@ -90,9 +91,9 @@ function displaySidebarTrack(side, track, index) {
   sidebar.innerHTML = `
     <div class="sidebar-track" data-index="${index}">
       <img src="${track.album.images[0].url}" alt="${track.album.name}">
-      <p>${track.name}</p>
-      <p>Artist: ${track.artists.map(artist => artist.name).join(', ')}</p>
-      <p>Album: ${track.album.name}</p>
+      <p class="track-name">${track.name}</p>
+      <p class="artist-name">Artist: ${track.artists.map(artist => artist.name).join(', ')}</p>
+      <p class="album-name">Album: ${track.album.name}</p>
     </div>
   `;
   sidebar.addEventListener('click', () => {
