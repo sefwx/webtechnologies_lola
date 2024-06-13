@@ -1,0 +1,96 @@
+body {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    margin: 50;
+    background-color: cornflowerblue;
+    color: #1a1a1a;
+    height: 800px;
+}
+
+
+.nav-header {
+    display: flex;
+    padding: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    height: 20px;
+    width: 100px;
+    margin: 10px;
+    padding: 5px;
+    background-color: aquamarine;
+    align-items: space-around;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.header-image {
+    margin: 100px;
+    padding: 500px;
+    width: 50px;
+    height: 20px;
+}
+
+header{
+    margin: 50px;
+    display: flex;
+    background-color:blue;
+    height: 100px;
+    width: 1600px;
+}
+
+
+.grid-container-2 {
+    margin: 50px;
+    display: flex;
+    background-color: #ffc1c1;
+    height: 600px;
+    width: 1600px;
+}
+
+.main_image {
+    padding: 50px;
+}
+
+.main_text{
+
+    padding: 50px;
+    width: 600px;
+}
+
+footer{
+    margin: 50px;
+    display: flex;
+    background-color: hotpink;
+}
+
+.footer-list1 {
+    width: 500px;
+    height: 180px;
+    margin: 10px;
+    background-color: rgb(255, 201, 228);
+    align-content: center;
+}
+.footer-list1 > li {
+    background-color: rgb(140, 255, 142);
+    align-content: center;
+}
+
+
+.footer-list2 {
+    width: 500px;
+    height: 300px;
+    margin: 10px;
+    background-color: rgb(255, 201, 228);
+    align-content: center;
+}
+.footer-list2 > li {
+    border-style: dotted;
+    border-color: rgb(255, 19, 137);
+    background-color: rgb(255, 246, 122);
+    align-content: center;
+}

@@ -1,0 +1,50 @@
+body {
+  font-family: 'Roboto Mono', monospace;
+  background-color: #00f;
+}
+
+h1 {
+  color: white;
+}
+
+.playlist {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.tracks-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Set to a single column */
+  gap: 20px;
+  width: 100%; /* Make the column wider */
+  justify-content: center; /* Center the content */
+}
+
+.track-item {
+  list-style: none;
+  padding: 10px;
+  border: 1px solid #ff72e5;
+  border-radius: 8px;
+  background: #ffe6fb;
+}
+
+.track-item audio {
+  height: 20px;
+  width: 100%;
+}
+
+.track-name {
+  color: #00f;
+  font-weight: bold;
+}
+
+.artist-name {
+  color: #ff60e7;
+}
+
+.asdf {
+  width: 200px;
+  height: auto;
+  align-items: center;
+}
