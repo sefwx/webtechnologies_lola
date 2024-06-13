@@ -9,7 +9,7 @@ let tracksData = [];
 function fetchPlaylist(token, playlistId) {
   console.log("token: ", token);
 
-  fetch(`https://api.spotify.com/v1/playlists/${PLAYLIST_ID}`, {
+  fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -23,6 +23,8 @@ function fetchPlaylist(token, playlistId) {
         tracksData = data.tracks.items;
         displayCurrentTrack(tracksData[currentTrackIndex].track);
         displayNextTracks(tracksData); // Display all tracks
+      } else {
+        console.error("No tracks found in the playlist");
       }
     })
     .catch((error) => {
@@ -59,11 +61,10 @@ function displayNextTracks(tracks) {
     li.classList.add("list-item");
     li.setAttribute("data-index", index); // Set data-index attribute
 
-   li.innerHTML = `
-  <span class="artist">Artist: ${track.track.artists.map(artist => artist.name).join(', ')}</span>
-  <span class="album">Album: ${track.track.album.name}</span>
-  <span class="song">Track: ${track.track.name}</span>
-`;
+    li.innerHTML = `
+      <span class="artist">Artist: ${track.track.artists.map(artist => artist.name).join(', ')}</span>
+      <span class="album">Album: ${track.track.album.name}</span>
+      <span class="song">Track: ${track.track.name}</span>
     `;
 
     // Add click event listener to switch track
@@ -120,6 +121,8 @@ function fetchAccessToken() {
       console.log(data);
       if (data.access_token) {
         fetchPlaylist(data.access_token, PLAYLIST_ID);
+      } else {
+        console.error("No access token received");
       }
     })
     .catch((error) => {
